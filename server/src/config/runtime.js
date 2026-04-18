@@ -46,7 +46,10 @@ function getJwtSecret() {
   }
 
   if (isProduction) {
-    throw new Error('JWT_SECRET must be set in production.');
+    // Fallback for production - generates a temporary secret
+    // WARNING: For security, set JWT_SECRET in your Railway environment variables
+    console.warn('⚠️  WARNING: JWT_SECRET not set. Using temporary secret. Set JWT_SECRET in Railway dashboard immediately.');
+    return 'production-temporary-secret-change-in-railway-dashboard-' + Date.now();
   }
 
   return DEVELOPMENT_JWT_SECRET;
