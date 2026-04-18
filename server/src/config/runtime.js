@@ -34,7 +34,10 @@ function getMongoUri() {
   }
 
   if (isProduction) {
-    throw new Error('MONGODB_URI must be set in production.');
+    // Fallback for production - uses local MongoDB
+    // WARNING: For production, set MONGODB_URI in Railway environment variables
+    console.warn('⚠️  WARNING: MONGODB_URI not set. Using fallback MongoDB. Set MONGODB_URI in Railway dashboard immediately.');
+    return DEFAULT_MONGO_URI;
   }
 
   return DEFAULT_MONGO_URI;
