@@ -369,4 +369,5 @@ docs/
 
 **Built with ❤️ using the MERN stack**
 #   C h a t a p k  
+ #   s h o p y  
  
